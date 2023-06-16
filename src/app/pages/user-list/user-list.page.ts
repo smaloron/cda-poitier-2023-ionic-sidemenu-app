@@ -12,6 +12,8 @@ export class UserListPage implements OnInit {
 
   userList: any[] = [];
 
+  userDetails: any = null;
+
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -21,6 +23,11 @@ export class UserListPage implements OnInit {
         this.userList = response.results;
       }
     )
+  }
+
+  getUser(index: number) {
+    this.userDetails = this.userList[index];
+    console.log(this.userDetails);
   }
 
 }

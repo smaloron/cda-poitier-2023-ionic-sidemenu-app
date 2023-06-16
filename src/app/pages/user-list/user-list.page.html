@@ -5,9 +5,47 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-list>
 
-    <ion-item *ngFor="let user of userList">
+
+  <ion-card *ngIf="userDetails">
+    <ion-img src="{{ userDetails.picture.large }}"></ion-img>
+    <ion-card-header>
+      <ion-card-title>
+        {{ userDetails.name.first }} {{ userDetails.name.last | uppercase}}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-text color="primary">
+              {{ userDetails.location.street.number }}
+              {{ userDetails.location.street.name }}
+              <br>
+              {{ userDetails.location.postcode }}
+              {{ userDetails.location.city }}
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              {{ userDetails.email}} <br>
+              {{ userDetails.phone}}
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="userDetails = null">
+          fermer
+        </ion-button>
+      </ion-buttons>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let user of userList; let pos = index" (click)="getUser(pos)" detail="true"
+      detail-icon="play-circle">
       <ion-avatar slot="start">
         <ion-img [src]="user.picture.large"></ion-img>
       </ion-avatar>
