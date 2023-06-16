@@ -23,7 +23,7 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <ion-button expand="block" (click)="swService.loadPrev()" *ngIf="swService.hasPrevious()">
+          <ion-button expand="block" (click)="isLoading=true;swService.loadPrev()" *ngIf="swService.hasPrevious()">
             Précédent
           </ion-button>
         </ion-col>
@@ -38,7 +38,7 @@
         </ion-col>
 
         <ion-col>
-          <ion-button expand="block" (click)="swService.loadNext()" *ngIf="swService.hasNext()">
+          <ion-button expand="block" (click)="isLoading=true;swService.loadNext()" *ngIf="swService.hasNext()">
             Suivant
           </ion-button>
         </ion-col>
