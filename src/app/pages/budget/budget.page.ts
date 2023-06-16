@@ -60,4 +60,24 @@ export class BudgetPage implements OnInit {
     alert.present();
   }
 
+  async showDeleteDialog(id: any) {
+    const alert = await this.alertCtrl.create({
+      header: "Voulez-vous vraiment supprimer ?",
+      buttons: [
+        {
+          text: "NON",
+          role: "cancel"
+        },
+        {
+          text: "OUI",
+          handler: () => {
+            this.budgetSrv.removeItem(id)
+          },
+        }
+      ]
+    });
+
+    alert.present();
+  }
+
 }

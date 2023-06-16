@@ -34,8 +34,11 @@ export class BudgetService {
     this.http.post(URL, data).subscribe(
       (response: any) => {
         this.loadItems();
-      },
-      (err) => console.log(err)
+      }
     );
+  }
+
+  removeItem(id: number) {
+    this.http.delete(URL + id).subscribe(() => this.loadItems());
   }
 }
