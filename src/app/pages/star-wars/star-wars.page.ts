@@ -8,9 +8,17 @@ import { StarWarsService } from 'src/app/services/star-wars.service';
 })
 export class StarWarsPage implements OnInit {
 
-  constructor(swService: StarWarsService) { }
+  isLoading = true;
+
+  constructor(public swService: StarWarsService) { }
 
   ngOnInit() {
+    this.swService.characterListChanged.subscribe(
+      () => {
+        console.log('changement');
+        this.isLoading = false;
+      }
+    )
   }
 
 }
