@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'star-wars',
     loadChildren: () => import('./pages/star-wars/star-wars.module').then( m => m.StarWarsPageModule)
+  },
+  {
+    path: 'budget',
+    loadChildren: () => import('./pages/budget/budget.module').then( m => m.BudgetPageModule)
   }
 ];
 

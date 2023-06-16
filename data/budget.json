@@ -1,0 +1,69 @@
+{
+  "budget": [
+    {
+      "id": 1,
+      "label": "Salaire",
+      "amount": 2000
+    },
+    {
+      "id": 2,
+      "label": "Courses",
+      "amount": -80
+    },
+    {
+      "label": "Vente de livres",
+      "amount": "170",
+      "id": 3
+    },
+    {
+      "label": "aaa",
+      "amount": 50,
+      "id": 4
+    },
+    {
+      "label": "bbbb",
+      "amount": "-60",
+      "id": 5
+    },
+    {
+      "label": "ccc",
+      "amount": "-78",
+      "id": 6
+    },
+    {
+      "label": "aaaa",
+      "amount": "45",
+      "id": 7
+    },
+    {
+      "label": "aa",
+      "amount": "45",
+      "id": 8
+    },
+    {
+      "label": "qqqss",
+      "amount": "67",
+      "id": 9
+    },
+    {
+      "label": "aaa",
+      "amount": "90",
+      "id": 10
+    },
+    {
+      "label": "ggg",
+      "amount": "45",
+      "id": 11
+    },
+    {
+      "label": "aazaz",
+      "amount": "67",
+      "id": 12
+    },
+    {
+      "label": "aaaa",
+      "amount": "-328",
+      "id": 13
+    }
+  ]
+}
