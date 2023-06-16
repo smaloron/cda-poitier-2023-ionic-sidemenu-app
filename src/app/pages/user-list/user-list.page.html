@@ -6,6 +6,48 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
+  <ion-refresher slot="fixed" (ionRefresh)="loadMoreUsers($event, true)">
+    <ion-refresher-content refreshingText="Chargement en cours"></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Rechercher des personnes
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked" style="padding-bottom: 10px;">Nombre de personnes</ion-label>
+          <ion-range min="2" max="20" pins="true" snaps="true" [(ngModel)]="search.numberOfResults"></ion-range>
+
+          <ion-chip slot="end">
+            {{ search.numberOfResults }}
+          </ion-chip>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Genre</ion-label>
+          <ion-select [(ngModel)]="search.gender">
+            <ion-select-option value="female">Féminin</ion-select-option>
+            <ion-select-option value="male">Masculin</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Nationalité</ion-label>
+          <ion-select [(ngModel)]="search.nationality">
+            <ion-select-option value="fr">Française</ion-select-option>
+            <ion-select-option value="dk">Danoise</ion-select-option>
+            <ion-select-option value="es">Espagnole</ion-select-option>
+            <ion-select-option value="ie">Irlandaise</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-button expand="block" (click)="searchUser()">Rechercher</ion-button>
+
+    </ion-card-content>
+  </ion-card>
 
   <ion-card *ngIf="userDetails">
     <ion-img src="{{ userDetails.picture.large }}"></ion-img>
@@ -43,7 +85,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-list>
+  <ion-list class="ion-margin-top">
     <ion-item *ngFor="let user of userList; let pos = index" (click)="getUser(pos)" detail="true"
       detail-icon="play-circle">
       <ion-avatar slot="start">
@@ -55,4 +97,10 @@
       </ion-label>
     </ion-item>
   </ion-list>
+
+
+  <ion-infinite-scroll (ionInfinite)="loadMoreUsers($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles"
+      loadingText="Chargement en cours..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
