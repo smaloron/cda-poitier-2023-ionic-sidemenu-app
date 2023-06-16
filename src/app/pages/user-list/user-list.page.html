@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>user-list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list>
+
+    <ion-item *ngFor="let user of userList">
+      <ion-avatar slot="start">
+        <ion-img [src]="user.picture.large"></ion-img>
+      </ion-avatar>
+
+      <ion-label>
+        <h3>{{ user.name.first }} {{ user.name.last }}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
