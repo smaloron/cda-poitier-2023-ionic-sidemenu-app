@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'user-list',
     loadChildren: () => import('./pages/user-list/user-list.module').then(m => m.UserListPageModule)
+  },
+  {
+    path: 'star-wars',
+    loadChildren: () => import('./pages/star-wars/star-wars.module').then( m => m.StarWarsPageModule)
   }
 ];
 
