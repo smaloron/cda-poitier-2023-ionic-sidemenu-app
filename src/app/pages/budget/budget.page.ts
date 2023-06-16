@@ -60,6 +60,42 @@ export class BudgetPage implements OnInit {
     alert.present();
   }
 
+  async showEditItemDialog(budgetItem: any) {
+    const alert = await this.alertCtrl.create({
+      header: "Modification d'un nouvel élément",
+      buttons: [
+        {
+          text: "Annuler",
+          role: "cancel"
+        },
+        {
+          text: "Valider",
+          handler: (data) => {
+            data.id = budgetItem.id;
+            this.budgetSrv.updateItem(data);
+          }
+        }
+      ],
+
+      inputs: [
+        {
+          name: "label",
+          type: "text",
+          placeholder: "Votre recette ou dépense",
+          value: budgetItem.label
+        },
+        {
+          name: "amount",
+          type: "number",
+          placeholder: "montant de la recette ou dépense",
+          value: budgetItem.amount
+        }
+      ]
+    });
+
+    alert.present();
+  }
+
   async showDeleteDialog(id: any) {
     const alert = await this.alertCtrl.create({
       header: "Voulez-vous vraiment supprimer ?",

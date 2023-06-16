@@ -17,6 +17,7 @@
       <ion-badge slot="end" [color]="budgetItem.amount >= 0? 'success': 'danger'">{{ budgetItem.amount }} €</ion-badge>
 
       <ion-icon name="trash" slot="end" (click)="showDeleteDialog(budgetItem.id)"></ion-icon>
+      <ion-icon name="create" slot="end" (click)="showEditItemDialog(budgetItem)"></ion-icon>
     </ion-item>
   </ion-list>
 

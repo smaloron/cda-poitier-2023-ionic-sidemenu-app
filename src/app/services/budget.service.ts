@@ -41,4 +41,9 @@ export class BudgetService {
   removeItem(id: number) {
     this.http.delete(URL + id).subscribe(() => this.loadItems());
   }
+
+  updateItem(data: BudgetItem) {
+    console.log(data);
+    this.http.put(URL + data.id, data).subscribe(() => this.loadItems());
+  }
 }
