@@ -9,7 +9,8 @@ export class AppComponent {
     { title: 'Accueil', url: '/home', icon: 'home' },
     { title: 'Liste des utilisateurs', url: '/user-list', icon: 'people' },
     { title: 'Star Wars', url: 'star-wars', icon: 'planet' },
-    { title: 'Budget', url: 'budget', icon: 'cash' }
+    { title: 'Budget', url: 'budget', icon: 'cash' },
+    { title: 'Camera', url: 'camera', icon: 'camera' }
   ];
   constructor() { }
 }
