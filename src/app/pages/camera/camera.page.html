@@ -11,4 +11,14 @@
   <ion-button (click)="takePicture()" expand="block">
     le petit oiseau va sortir
   </ion-button>
+
+  <ion-button (click)="takePicture2()" expand="block">
+    dites Cheeeeeese
+  </ion-button>
+
+  <ion-img *ngIf="imageData" src="data:image/jpeg;base64,{{imageData}}"></ion-img>
+
+  <ion-img *ngIf="imageUrl" [src]="imageUrl"></ion-img>
+
+
 </ion-content>
