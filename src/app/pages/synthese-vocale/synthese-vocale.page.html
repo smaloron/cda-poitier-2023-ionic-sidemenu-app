@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>synthese-vocale</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Le texte à lire</ion-label>
+      <ion-textarea rows="6" [(ngModel)]="text"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">La voix</ion-label>
+      <ion-select [(ngModel)]="chosenVoice">
+        <ion-select-option *ngFor="let voice of voiceList; let pos=index" value="{{voice.voiceURI}}">
+          {{voice.name}} : {{ voice.lang }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" (click)="speak()">Synthèse vocale</ion-button>
+</ion-content>

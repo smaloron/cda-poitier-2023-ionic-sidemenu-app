@@ -10,7 +10,8 @@ export class AppComponent {
     { title: 'Liste des utilisateurs', url: '/user-list', icon: 'people' },
     { title: 'Star Wars', url: 'star-wars', icon: 'planet' },
     { title: 'Budget', url: 'budget', icon: 'cash' },
-    { title: 'Camera', url: 'camera', icon: 'camera' }
+    { title: 'Camera', url: 'camera', icon: 'camera' },
+    { title: 'Synthèse vocale', url: 'synthese-vocale', icon: 'musical-note' },
   ];
   constructor() { }
 }

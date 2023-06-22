@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'camera',
     loadChildren: () => import('./pages/camera/camera.module').then( m => m.CameraPageModule)
+  },
+  {
+    path: 'synthese-vocale',
+    loadChildren: () => import('./pages/synthese-vocale/synthese-vocale.module').then( m => m.SyntheseVocalePageModule)
   }
 ];
 
