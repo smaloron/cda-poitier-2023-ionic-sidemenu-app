@@ -14,6 +14,7 @@ export class AppComponent {
     { title: 'Synthèse vocale', url: 'synthese-vocale', icon: 'musical-note' },
     { title: 'Géolocalisation', url: 'geolocation', icon: 'locate' },
     { title: 'Géolocalisation aléatoire', url: 'random-geoloc', icon: 'location' },
+    { title: 'Pipe asynchrone', url: 'async-pipe', icon: 'hourglass' },
   ];
   constructor() { }
 }

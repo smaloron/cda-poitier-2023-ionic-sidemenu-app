@@ -34,7 +34,7 @@ export class RandomUserService {
     };
   }
 
-  getUsers(): Observable<Person[]> {
+  public getUsers(): Observable<Person[]> {
     const request = this.http.get(URL);
 
     return request.pipe(

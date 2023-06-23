@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'random-geoloc',
     loadChildren: () => import('./pages/random-geoloc/random-geoloc.module').then( m => m.RandomGeolocPageModule)
+  },
+  {
+    path: 'async-pipe',
+    loadChildren: () => import('./pages/async-pipe/async-pipe.module').then( m => m.AsyncPipePageModule)
   }
 ];
 
