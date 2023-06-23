@@ -1,16 +1,12 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
+
 import { LatLngExpression, Map, tileLayer, icon, marker } from 'leaflet';
+import { RandomUserService, Person } from '../../services/random-user.service';
 
-const URL = 'https://randomuser.me/api?results=100&nat=fr';
 
-interface Person {
-  latitude: number;
-  longitude: number;
-  fullName: string;
-  address: string
-}
+
+
 
 @Component({
   selector: 'app-random-geoloc',
@@ -21,7 +17,7 @@ export class RandomGeolocPage implements OnInit {
 
   map!: Map;
 
-  constructor(private http: HttpClient) { }
+  constructor(private userService: RandomUserService) { }
 
   ionViewDidEnter() {
     this.map = new Map('mapView');
@@ -32,24 +28,7 @@ export class RandomGeolocPage implements OnInit {
   }
 
   ngOnInit() {
-    const request = this.http.get(URL);
-
-    request
-      .pipe(
-        map((response: any) => {
-          const data = response.results
-          console.log(data);
-          return data.map((item: any) => {
-            return {
-              fullName: item.name.first + ' ' + item.name.last,
-              latitude: item.location.coordinates.latitude,
-              longitude: item.location.coordinates.longitude,
-              address: item.location.street.number + ' ' + item.location.street.name + ' ' + item.location.postcode + ' ' + item.location.city
-            }
-          });
-        }
-        )
-      )
+    this.userService.getUsers()
       .subscribe(
         (response: Person[]) => {
           this.initMap(response);
