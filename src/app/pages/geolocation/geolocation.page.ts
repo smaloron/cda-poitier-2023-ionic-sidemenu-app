@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation';
-import { Map, tileLayer } from 'leaflet';
+import { Map, tileLayer, marker, icon, LatLngExpression } from 'leaflet';
 
 @Component({
   selector: 'app-geolocation',
@@ -29,9 +29,12 @@ export class GeolocationPage implements OnInit {
         });
       }
 
-      //this.coords = await Geolocation.getCurrentPosition();
-
+      const pos = await Geolocation.getCurrentPosition({
+        enableHighAccuracy: true
+      });
+      this.leafLetInit(pos.coords);
       // Espionne le changement de géolocalisation
+      /*
       await Geolocation.watchPosition(
         {
           enableHighAccuracy: true,
@@ -42,7 +45,7 @@ export class GeolocationPage implements OnInit {
           this.coords = pos;
           this.leafLetInit(pos.coords);
         }
-      );
+      );*/
 
     } catch (error) {
       console.log(error);
@@ -54,12 +57,27 @@ export class GeolocationPage implements OnInit {
   }
 
   ionViewDidEnter() {
-
+    this.map = new Map('map');
   }
 
   leafLetInit(coords: any) {
-    this.map = new Map('map');
-    this.map.setView([coords.latitude, coords.longitude], 23);
+    const origin: LatLngExpression = [coords.latitude, coords.longitude];
+    this.map.setView(origin, 23);
+
+    const markerIcon = icon({
+      iconUrl: 'assets/icon/favicon.png',
+      iconSize: [30, 30]
+    });
+
+    const hereMarker = marker(origin, {
+      icon: markerIcon,
+      title: 'Vous êtes ici...',
+      draggable: true
+    });
+
+    hereMarker.bindPopup('<h1>Vous êtes ici chez moi</h1>');
+
+    hereMarker.addTo(this.map);
 
     tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
