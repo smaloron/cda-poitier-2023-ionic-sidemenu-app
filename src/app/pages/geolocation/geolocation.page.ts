@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation';
+import { Map, tileLayer } from 'leaflet';
 
 @Component({
   selector: 'app-geolocation',
@@ -9,6 +10,8 @@ import { Geolocation } from '@capacitor/geolocation';
 export class GeolocationPage implements OnInit {
 
   coords: any;
+
+  map!: Map;
 
   constructor() { }
 
@@ -49,5 +52,22 @@ export class GeolocationPage implements OnInit {
   getDateFromTimestamp(timestamp: number) {
     return new Date(timestamp);
   }
+
+  ionViewDidEnter() {
+    this.leafLetInit();
+  }
+
+  leafLetInit() {
+    this.map = new Map('map');
+    this.map.setView([33.6396965, -84.4304574], 23);
+
+    tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(this.map);
+
+    this.map.on('click', (even) => console.log(even));
+
+  }
+
 
 }
