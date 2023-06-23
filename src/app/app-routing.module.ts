@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'geolocation',
     loadChildren: () => import('./pages/geolocation/geolocation.module').then( m => m.GeolocationPageModule)
+  },
+  {
+    path: 'random-geoloc',
+    loadChildren: () => import('./pages/random-geoloc/random-geoloc.module').then( m => m.RandomGeolocPageModule)
   }
 ];
 

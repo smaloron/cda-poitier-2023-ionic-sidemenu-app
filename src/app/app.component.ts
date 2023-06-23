@@ -13,6 +13,7 @@ export class AppComponent {
     { title: 'Camera', url: 'camera', icon: 'camera' },
     { title: 'Synthèse vocale', url: 'synthese-vocale', icon: 'musical-note' },
     { title: 'Géolocalisation', url: 'geolocation', icon: 'locate' },
+    { title: 'Géolocalisation aléatoire', url: 'random-geoloc', icon: 'location' },
   ];
   constructor() { }
 }
