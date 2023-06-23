@@ -26,8 +26,21 @@ export class GeolocationPage implements OnInit {
         });
       }
 
-      this.coords = await Geolocation.getCurrentPosition();
-      console.log(this.coords);
+      //this.coords = await Geolocation.getCurrentPosition();
+
+      // Espionne le changement de géolocalisation
+      await Geolocation.watchPosition(
+        {
+          enableHighAccuracy: true,
+          maximumAge: 1000,
+          timeout: 1000
+        },
+        (pos: any) => {
+          this.coords = pos;
+          console.log(this.coords);
+        }
+      );
+
     } catch (error) {
       console.log(error);
     }
