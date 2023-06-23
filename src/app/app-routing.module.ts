@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'synthese-vocale',
     loadChildren: () => import('./pages/synthese-vocale/synthese-vocale.module').then( m => m.SyntheseVocalePageModule)
+  },
+  {
+    path: 'geolocation',
+    loadChildren: () => import('./pages/geolocation/geolocation.module').then( m => m.GeolocationPageModule)
   }
 ];
 

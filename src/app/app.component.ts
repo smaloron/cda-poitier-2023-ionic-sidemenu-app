@@ -12,6 +12,7 @@ export class AppComponent {
     { title: 'Budget', url: 'budget', icon: 'cash' },
     { title: 'Camera', url: 'camera', icon: 'camera' },
     { title: 'Synthèse vocale', url: 'synthese-vocale', icon: 'musical-note' },
+    { title: 'Géolocalisation', url: 'geolocation', icon: 'locate' },
   ];
   constructor() { }
 }
