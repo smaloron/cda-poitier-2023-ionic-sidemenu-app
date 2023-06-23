@@ -40,7 +40,7 @@ export class GeolocationPage implements OnInit {
         },
         (pos: any) => {
           this.coords = pos;
-          console.log(this.coords);
+          this.leafLetInit(pos.coords);
         }
       );
 
@@ -54,12 +54,12 @@ export class GeolocationPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.leafLetInit();
+
   }
 
-  leafLetInit() {
+  leafLetInit(coords: any) {
     this.map = new Map('map');
-    this.map.setView([33.6396965, -84.4304574], 23);
+    this.map.setView([coords.latitude, coords.longitude], 23);
 
     tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
