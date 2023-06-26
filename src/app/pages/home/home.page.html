@@ -21,4 +21,10 @@
     {{ 50 | convertTemp:'f'}} farenheit
   </p>
 
+  <app-hello name="titi" age="13"></app-hello>
+
+  <app-hello name="toto" age="24"></app-hello>
+
+  <app-hello *ngFor="let item of persons" [name]="item.name" [age]="item.age"></app-hello>
+
 </ion-content>

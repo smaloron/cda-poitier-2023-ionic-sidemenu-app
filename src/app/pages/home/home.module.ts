@@ -10,6 +10,7 @@ import { HomePage } from './home.page';
 
 import { CapitalizePipe } from 'src/app/pipes/capitalize.pipe';
 import { ConvertTemperaturePipe } from 'src/app/pipes/convertTemperature';
+import { HelloComponent } from 'src/app/components/hello/hello.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { ConvertTemperaturePipe } from 'src/app/pipes/convertTemperature';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, CapitalizePipe, ConvertTemperaturePipe]
+  declarations: [HomePage, CapitalizePipe, ConvertTemperaturePipe, HelloComponent]
 })
 export class HomePageModule { }
