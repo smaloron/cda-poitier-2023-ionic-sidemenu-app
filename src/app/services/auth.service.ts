@@ -12,6 +12,11 @@ export interface UserInterface {
   password?: string;
 }
 
+export interface CredentialInterface {
+  email: string;
+  password: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,9 +26,11 @@ export class AuthService {
   user!: any;
 
   registerSubject!: Subject<boolean>;
+  loginSubject!: Subject<boolean>;
 
   constructor(private http: HttpClient) {
     this.registerSubject = new Subject<boolean>();
+    this.loginSubject = new Subject<boolean>();
   }
 
   register(userInfos: UserInterface) {
@@ -34,6 +41,20 @@ export class AuthService {
         delete this.user.password;
         this.registerSubject.next(true);
       });
+  }
+
+  login(credentials: CredentialInterface) {
+
+    this.http.post(URL + 'auth/login', credentials).subscribe(
+      (response: any) => {
+        console.log(response);
+        /*
+        this.token = response.token;
+        this.user = response.user;
+        delete this.user.password;*/
+        this.loginSubject.next(true);
+      }
+    );
   }
 
   getNewUser(): UserInterface {

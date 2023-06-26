@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { AuthService, UserInterface } from 'src/app/services/auth.service';
 
@@ -7,7 +7,7 @@ import { AuthService, UserInterface } from 'src/app/services/auth.service';
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
-export class RegisterPage implements OnInit {
+export class RegisterPage implements OnInit, OnDestroy {
 
   userInput!: UserInterface;
 
@@ -20,6 +20,9 @@ export class RegisterPage implements OnInit {
         }
       }
     )
+  }
+  ngOnDestroy(): void {
+    this.auth.registerSubject.unsubscribe();
   }
 
   async showToast(text: string) {
