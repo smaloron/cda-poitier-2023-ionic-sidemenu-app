@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'async-pipe',
     loadChildren: () => import('./pages/async-pipe/async-pipe.module').then( m => m.AsyncPipePageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   }
 ];
 

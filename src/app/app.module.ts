@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { StarWarsService } from './services/star-wars.service';
 import { BudgetService } from './services/budget.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,7 @@ import { BudgetService } from './services/budget.service';
     HttpClientModule],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    StarWarsService, BudgetService],
+    StarWarsService, BudgetService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
