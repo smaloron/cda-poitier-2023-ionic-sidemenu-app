@@ -25,6 +25,9 @@
 
   <app-hello name="toto" age="24"></app-hello>
 
-  <app-hello *ngFor="let item of persons" [name]="item.name" [age]="item.age"></app-hello>
+  <hr>
+
+  <app-hello *ngFor="let item of persons" [name]="item.name" [age]="item.age"
+    (doClick)="getClickCount($event)"></app-hello>
 
 </ion-content>

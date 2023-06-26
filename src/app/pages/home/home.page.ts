@@ -18,4 +18,8 @@ export class HomePage implements OnInit {
   ngOnInit() {
   }
 
+  getClickCount(count: number) {
+    console.log(count);
+  }
+
 }
