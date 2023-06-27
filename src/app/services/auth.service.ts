@@ -72,4 +72,8 @@ export class AuthService {
     this.token = undefined;
     this.user = undefined;
   }
+
+  getAuthorizationHeader(): string {
+    return this.token ? 'Bearer ' + this.token : '';
+  }
 }

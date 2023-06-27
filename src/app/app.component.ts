@@ -16,6 +16,7 @@ export class AppComponent {
     { title: 'Géolocalisation', url: 'geolocation', icon: 'locate', visible: true },
     { title: 'Géolocalisation aléatoire', url: 'random-geoloc', icon: 'location', visible: true },
     { title: 'Pipe asynchrone', url: 'async-pipe', icon: 'hourglass', visible: true },
+    { title: 'Animaux de compagnie', url: 'pets', icon: 'cat', visible: true },
   ];
 
 

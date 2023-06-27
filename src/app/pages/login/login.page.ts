@@ -29,8 +29,8 @@ export class LoginPage implements OnInit {
 
   ionViewWillEnter() {
     this.credentials = {
-      email: '',
-      password: ''
+      email: 'Olga@user.com',
+      password: '123'
     };
   }
 
