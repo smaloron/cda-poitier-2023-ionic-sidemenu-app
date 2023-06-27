@@ -22,7 +22,7 @@ export interface CredentialInterface {
 })
 export class AuthService {
 
-  token!: string;
+  token!: string | undefined;
   user!: any;
 
   registerSubject!: Subject<boolean>;
@@ -44,14 +44,12 @@ export class AuthService {
   }
 
   login(credentials: CredentialInterface) {
-
     this.http.post(URL + 'auth/login', credentials).subscribe(
       (response: any) => {
         console.log(response);
-        /*
         this.token = response.token;
         this.user = response.user;
-        delete this.user.password;*/
+        delete this.user.password;
         this.loginSubject.next(true);
       }
     );
@@ -64,5 +62,14 @@ export class AuthService {
       role: 'user',
       password: ''
     }
+  }
+
+  isAuthenticated(): boolean {
+    return this.user && this.user.id != null && this.token;
+  }
+
+  logout() {
+    this.token = undefined;
+    this.user = undefined;
   }
 }
