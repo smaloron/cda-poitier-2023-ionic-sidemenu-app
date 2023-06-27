@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { StarWarsPage } from './pages/star-wars/star-wars.page';
+import { AuthGuard } from './services/auth.guard';
+import { StarWarsPageModule } from './pages/star-wars/star-wars.module';
 
 const routes: Routes = [
   {
@@ -17,39 +20,43 @@ const routes: Routes = [
   },
   {
     path: 'star-wars',
-    loadChildren: () => import('./pages/star-wars/star-wars.module').then( m => m.StarWarsPageModule)
+    /*
+    loadChildren: () => import('./pages/star-wars/star-wars.module').then(m => m.StarWarsPageModule),*/
+    component: StarWarsPageModule,
+    canActivate: [AuthGuard]
+
   },
   {
     path: 'budget',
-    loadChildren: () => import('./pages/budget/budget.module').then( m => m.BudgetPageModule)
+    loadChildren: () => import('./pages/budget/budget.module').then(m => m.BudgetPageModule)
   },
   {
     path: 'camera',
-    loadChildren: () => import('./pages/camera/camera.module').then( m => m.CameraPageModule)
+    loadChildren: () => import('./pages/camera/camera.module').then(m => m.CameraPageModule)
   },
   {
     path: 'synthese-vocale',
-    loadChildren: () => import('./pages/synthese-vocale/synthese-vocale.module').then( m => m.SyntheseVocalePageModule)
+    loadChildren: () => import('./pages/synthese-vocale/synthese-vocale.module').then(m => m.SyntheseVocalePageModule)
   },
   {
     path: 'geolocation',
-    loadChildren: () => import('./pages/geolocation/geolocation.module').then( m => m.GeolocationPageModule)
+    loadChildren: () => import('./pages/geolocation/geolocation.module').then(m => m.GeolocationPageModule)
   },
   {
     path: 'random-geoloc',
-    loadChildren: () => import('./pages/random-geoloc/random-geoloc.module').then( m => m.RandomGeolocPageModule)
+    loadChildren: () => import('./pages/random-geoloc/random-geoloc.module').then(m => m.RandomGeolocPageModule)
   },
   {
     path: 'async-pipe',
-    loadChildren: () => import('./pages/async-pipe/async-pipe.module').then( m => m.AsyncPipePageModule)
+    loadChildren: () => import('./pages/async-pipe/async-pipe.module').then(m => m.AsyncPipePageModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
   }
 ];
 
