@@ -61,6 +61,10 @@ const routes: Routes = [
   {
     path: 'pets',
     loadChildren: () => import('./pages/pets/pets.module').then( m => m.PetsPageModule)
+  },
+  {
+    path: 'real-time-quotes',
+    loadChildren: () => import('./pages/real-time-quotes/real-time-quotes.module').then( m => m.RealTimeQuotesPageModule)
   }
 ];
 

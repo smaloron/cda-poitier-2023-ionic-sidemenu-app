@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>real-time-quotes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let item of quoteList">
+      <ion-label>{{ item.currencyName}}</ion-label>
+      <ion-chip slot="end">{{ item.value }}</ion-chip>
+      <ion-icon name="trash" slot="end" (click)="deleteQuote(item.key)"></ion-icon>
+      <ion-icon name="create" slot="end" (click)="setQuote(item)"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label position="stacked">Devise</ion-label>
+          <ion-input [(ngModel)]="quote.currencyName"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-label position="stacked">valeur</ion-label>
+          <ion-input type="number" [(ngModel)]="quote.value"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" (click)="saveQuote()"
+            [color]="quote.key?'secondary':'primary'">Valider</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
